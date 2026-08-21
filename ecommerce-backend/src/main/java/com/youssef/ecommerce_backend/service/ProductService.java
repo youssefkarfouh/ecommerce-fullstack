@@ -35,7 +35,7 @@ public class ProductService {
     public List<ProductResponse> getAllProducts() {
         return productRepository.findAll()
                 .stream()
-                .map(item -> mapToResponse(item))
+                .map(this::mapToResponse)
                 .toList();
     }
 
@@ -55,9 +55,19 @@ public class ProductService {
         ProductEntity productEntity = productRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Product with id " + id + " not found"));
         productRepository.delete(productEntity);
     }
-    public ProductResponse updateProduct(Long id){
+
+    public ProductResponse updateProduct(Long id , ProductRequest request) {
+
         ProductEntity productEntity = productRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Product with id " + id + " not found"));
 
+        productEntity.setName(request.getName());
+        productEntity.setDescription(request.getDescription());
+        productEntity.setPrice(request.getPrice());
+        productEntity.setStockQuantity(request.getStockQuantity());
+
+        ProductEntity updatedProduct =  productRepository.save(productEntity);
+
+        return mapToResponse(updatedProduct);
 
     }
 

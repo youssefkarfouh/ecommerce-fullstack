@@ -22,7 +22,6 @@ public class ProductController {
     @PostMapping
     public ProductResponse createProduct(@Valid @RequestBody ProductRequest request) {
         return productService.createProduct(request);
-
     }
 
     @GetMapping
@@ -44,8 +43,6 @@ public class ProductController {
     @PutMapping("/{id}")
     public ProductResponse updateProduct(@PathVariable Long id , @Valid @RequestBody ProductRequest request){
 
-
-        return new ProductResponse(); // just test
-     //   productService.updateProduct(id,request);
+       return  productService.updateProduct(id,request);
     }
 }
