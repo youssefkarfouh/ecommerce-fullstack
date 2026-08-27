@@ -1,9 +1,6 @@
 package com.youssef.ecommerce_backend.model.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 
@@ -16,6 +13,9 @@ public class ProductEntity {
     private String description;
     private BigDecimal price;
     private int stockQuantity;
+    @JoinColumn(name = "category_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private CategoryEntity category;
 
     public ProductEntity() {
     }
@@ -52,12 +52,19 @@ public class ProductEntity {
         this.description = description;
     }
 
-
     public int getStockQuantity() {
         return stockQuantity;
     }
 
     public void setStockQuantity(int stockQuantity) {
         this.stockQuantity = stockQuantity;
+    }
+
+    public CategoryEntity getCategory() {
+        return category;
+    }
+
+    public void setCategory(CategoryEntity category) {
+        this.category = category;
     }
 }

@@ -1,10 +1,11 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/my_db
-    username: postgres
-    password: postgres
+    url: jdbc:postgresql://localhost:5432/ecommerceDb
+    username: youssef
+    password: 08101999
 
   jpa:
+    open-in-view: false
     hibernate:
       ddl-auto: update
     show-sql: true

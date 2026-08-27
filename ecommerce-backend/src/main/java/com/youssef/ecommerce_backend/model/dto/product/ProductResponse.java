@@ -1,6 +1,8 @@
 package com.youssef.ecommerce_backend.model.dto.product;
 
 
+import com.youssef.ecommerce_backend.model.dto.category.CategoryResponse;
+
 import java.math.BigDecimal;
 
 public class ProductResponse {
@@ -15,6 +17,8 @@ public class ProductResponse {
 
 
     private int stockQuantity;
+
+   private CategoryResponse category;
 
 
     public Long getId() {
@@ -55,5 +59,13 @@ public class ProductResponse {
 
     public void setStockQuantity(int stockQuantity) {
         this.stockQuantity = stockQuantity;
+    }
+
+    public CategoryResponse getCategory() {
+        return category;
+    }
+
+    public void setCategory(CategoryResponse category) {
+        this.category = category;
     }
 }

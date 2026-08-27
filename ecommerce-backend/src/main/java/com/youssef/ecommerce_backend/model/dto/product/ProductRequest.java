@@ -21,6 +21,9 @@ public class ProductRequest
     @Min(0)
     private int stockQuantity;
 
+    @NotNull
+    private Long categoryId;
+
     public String getName() {
         return name;
     }
@@ -51,5 +54,13 @@ public class ProductRequest
 
     public void setStockQuantity(int stockQuantity) {
         this.stockQuantity = stockQuantity;
+    }
+
+    public Long getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
     }
 }
