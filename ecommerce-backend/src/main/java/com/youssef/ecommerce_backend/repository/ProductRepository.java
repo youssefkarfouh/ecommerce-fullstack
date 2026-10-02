@@ -8,7 +8,6 @@ import java.util.List;
 
 public interface ProductRepository extends JpaRepository<ProductEntity ,Long> {
 
-
     @Query(value = "SELECT p FROM ProductEntity p JOIN FETCH p.category")
     List<ProductEntity> findAllWithCategory();
 }

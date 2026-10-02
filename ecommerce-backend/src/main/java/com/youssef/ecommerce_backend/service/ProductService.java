@@ -49,7 +49,7 @@ public class ProductService {
                 .toList();
     }
 
-    @Transactional
+
     public ProductResponse getProductById(Long id) {
 
         ProductEntity product = productRepository
@@ -57,6 +57,9 @@ public class ProductService {
                 .orElseThrow(() -> new ResourceNotFoundException(
                         "Product with id " + id + " not found"
                 ));
+
+
+        System.out.println(product);
 
         return mapToResponse(product);
     }

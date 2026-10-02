@@ -67,4 +67,16 @@ public class ProductEntity {
     public void setCategory(CategoryEntity category) {
         this.category = category;
     }
+
+    @Override
+    public String toString() {
+        return "ProductEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", stockQuantity=" + stockQuantity +
+                ", category=" + category +
+                '}';
+    }
 }
